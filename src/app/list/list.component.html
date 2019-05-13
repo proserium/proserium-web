@@ -1,0 +1,13 @@
+<div *ngFor="let service of services | async">
+  <mat-card [routerLink]="['/s/'+ service.sid ]">
+    <mat-card-header>
+      <mat-icon mat-card-avatar>dns</mat-icon>
+      <mat-card-title>
+        {{ service.instance }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{ service.type }}
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
