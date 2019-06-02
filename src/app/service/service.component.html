@@ -1,19 +1,18 @@
 <div *ngFor="let serv of service | async">
-<mat-card>
-  <mat-card-header>
-    <mat-icon mat-card-avatar>dns</mat-icon>
-    <mat-card-title>
-      {{ serv.instance }}
-    </mat-card-title>
-    <mat-card-subtitle>
-      {{ serv.type }}
-    </mat-card-subtitle>
-    <mat-card-content>
-      <p>Status:  {{ serv.status }}</p>
-      <p>Runtime: {{ serv.runtime }} min</p>
-      <p>Ramusage: {{ serv.ramusage }}</p>
-    </mat-card-content>
-  </mat-card-header>
-</mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-icon mat-card-avatar>dns</mat-icon>
+      <mat-card-title>
+        {{ serv.instance }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{ serv.type }}
+      </mat-card-subtitle>
+      <mat-card-content>
+        <p>Status: {{ serv.status }}</p>
+        <p>Runtime: {{ serv.runtime }} min</p>
+        <p>Ramusage: {{ serv.ramusage }}</p>
+      </mat-card-content>
+    </mat-card-header>
+  </mat-card>
 </div>
-

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Service } from './../../Service';
+import { Service } from '../../Service';
 
 @Component({
   selector: 'app-list',
@@ -22,7 +22,7 @@ export class ListComponent implements OnInit {
   }
 
   getServices() {
-    this.services = this.http.get(this.url + '/services')
+    this.services = this.http.get<Service>(this.url + '/services')
   }
 
 
