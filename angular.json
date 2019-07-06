@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/proserium-gui",
+            "outputPath": "dist/proserium-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -135,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "proserium-gui"
+  "defaultProject": "proserium-web"
 }
