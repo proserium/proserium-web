@@ -1,19 +1,111 @@
+/*
+ * build.gradle
+ *
+ * Copyright by proserium, all rights reserved.
+ * MIT License: https://mit-license.org
+ */
 plugins {
   id "com.moowork.node" version "1.3.1"
 }
 
-version '0.0.1'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+def groupId = 'net.proserium'
+def rootPackageName = 'net.proserium.web'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 node {
   version = '8.10.0'
   npmVersion = '6.9.2'
   download = true
-  workDir = file("${project.buildDir}/node")
+  workDir = file("${project.buildDir}/.node")
   nodeModulesDir = file("${project.projectDir}")
 }
 
-task build(type: NpmTask) {
+
+defaultTasks 'clean', 'npm_install', 'angularbuild' //, 'build', 'eclipse'
+def LINE = '****************************************************************************************'
+def dateTimestamp = new java.text.SimpleDateFormat("dd.MM.yyyy").format(new Date())
+def props = new Properties()
+file("${project.projectDir}/VERSION").withInputStream { props.load(it) }
+version = props.getProperty("major.number") + "." + props.getProperty("minor.number") + "." + props.getProperty("build.number")
+
+init {
+	println(LINE)
+	println("Project $projectName ($groupId)")
+	println("Version $version, $dateTimestamp (${System.properties['user.name']})")
+	//println("Java v${System.properties['java.version']}, target $targetCompatibility (${System.properties['java.vendor']}, ${System.properties['os.name']})")
+	println("Node v${node.version}, NPM v${node.npmVersion} (${System.properties['os.name']})")
+	println(LINE)
+
+	groupId = "$groupId"
+}
+
+def mvnSecurity = new Properties()
+file(".mvn-security").withInputStream { props.load(it) }
+def mvnUser = props.getProperty("user")
+def mvnPassword = props.getProperty("password")
+
+if (JavaVersion.current().isJava8Compatible()) {
+    allprojects {
+      tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+      }
+    }
+}
+
+jar{
+    // include license file
+	into 'META-INF', {
+		from 'LICENSE.txt'
+	}
+
+    // define proper manifest
+    manifest {
+        attributes 'Specification-Title'   : rootProject.name,
+		           'Specification-Version' : version,
+		           'Implementation-Title'  : rootProject.name,
+        	       'Implementation-Version': version + ' / ' + dateTimestamp,
+                   'Built-By'              : System.properties['user.name'],
+                   'Build-Timestamp'       : new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
+                   'Created-By'            : "Gradle ${gradle.gradleVersion}",
+                   'Build-Jdk'             : "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
+                   'Build-OS'              : "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    archiveAppendix = 'sources'
+}
+
+task javadocJar(type: Jar) {
+    from javadoc
+    archiveAppendix = 'javadoc'
+}
+
+task angularbuild(type: NpmTask) {
   args = ['run', 'build']
 }
 
-build.dependsOn(npm_install)
+artifacts {
+    archives jar
+    archives sourcesJar
+    archives javadocJar
+}
+
+repositories {
+    mavenCentral()
+	maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+dependencies {
+	//compile 'net.sf.jptools:jptools:1.6.1-SNAPSHOT'
+	//runtime 'net.sf.jptools:jptools:1.6.1-SNAPSHOT'
+
+    //testCompile group: 'junit', name: 'junit', version: '4.+'
+}
