@@ -1,25 +1,9 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-/dist
-/tmp
-/out-tsc
-
-# dependencies
-/node_modules
-
-# profiling files
-chrome-profiler-events.json
-speed-measure-plugin.json
+# Eclipse project files
+.classes/
 
 # IDEs and editors
-/.idea
-.project
-.classpath
+.idea/
 .c9/
-*.launch
-.settings/
-*.sublime-workspace
 
 # IDE - VSCode
 .vscode/*
@@ -29,8 +13,27 @@ speed-measure-plugin.json
 !.vscode/extensions.json
 .history/*
 
+# other files
+.gradle/
+build/
+
+# generated source
+srcGen/
+
+# compiled output
+dist/
+tmp/
+out-tsc/
+
+# dependencies
+node_modules/
+
+# profiling files
+chrome-profiler-events.json
+speed-measure-plugin.json
+
 # misc
-/.sass-cache
+.sass-cache/
 /connect.lock
 /coverage
 /libpeerconnection.log
@@ -38,9 +41,3 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-
-# System Files
-.DS_Store
-Thumbs.db
-/.gradle/
-/build
