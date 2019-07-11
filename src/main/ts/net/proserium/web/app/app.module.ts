@@ -9,13 +9,15 @@ import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListComponent } from './list/list.component';
 import { ServiceComponent } from './service/service.component';
+import { NodesComponent } from './nodes/nodes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     ListComponent,
-    ServiceComponent
+    ServiceComponent,
+    NodesComponent
   ],
   imports: [
     BrowserModule,

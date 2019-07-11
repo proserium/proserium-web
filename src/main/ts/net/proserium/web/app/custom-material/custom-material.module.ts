@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule, MatIconModule, MatCardModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule } from '@angular/material';
+import { MatIconModule, MatCardModule, MatDividerModule, MatStepperModule } from '@angular/material';
 
 const material: any[] = [
   MatButtonModule,
@@ -8,7 +9,9 @@ const material: any[] = [
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatDividerModule,
+  MatStepperModule
 ];
 
 @NgModule({

@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListComponent } from './list/list.component';
 import { ServiceComponent } from './service/service.component';
+import { NodesComponent } from './nodes/nodes.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
-  { path: 'l', component: ListComponent},
-  { path: 's/:sid', component: ServiceComponent}
+  { path: 'services', component: ListComponent},
+  { path: 'service/:sid', component: ServiceComponent},
+  { path: 'nodes', component: NodesComponent}
 ];
 
 @NgModule({

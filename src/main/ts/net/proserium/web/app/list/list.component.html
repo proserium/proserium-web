@@ -1,13 +1,54 @@
-<div *ngFor="let service of services | async">
-  <mat-card [routerLink]="['/s/'+ service.sid ]">
-    <mat-card-header>
-      <mat-icon mat-card-avatar>dns</mat-icon>
-      <mat-card-title>
-        {{ service.instance }}
-      </mat-card-title>
-      <mat-card-subtitle>
-        {{ service.type }}
-      </mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
-</div>
+<mat-card [routerLink]="['/service/apache-http-1']">
+  <mat-card-header>
+    <div class="httpd" mat-card-avatar></div>
+
+    <mat-card-title>
+      apache-http-1
+    </mat-card-title>
+    <mat-card-content>
+      <p>Webserver for <a href="http://proserium.net">http://proserium.net</a></p>
+      <p>Node: debian-1</p>
+    </mat-card-content>
+  </mat-card-header>
+</mat-card>
+<mat-card [routerLink]="['/service/apache-http-2']">
+  <mat-card-header>
+    <div class="httpd" mat-card-avatar></div>
+
+    <mat-card-title>
+      apache-http-2
+    </mat-card-title>
+    <mat-card-content>
+      <p>Webserver for <a href="http://proserium.net">http://proserium.net</a></p>
+      <p>Node: debian-2</p>
+    </mat-card-content>
+  </mat-card-header>
+</mat-card>
+
+<mat-card [routerLink]="['/service/apache-http-3']">
+  <mat-card-header>
+    <div class="httpd" mat-card-avatar></div>
+
+    <mat-card-title>
+      apache-http-3
+    </mat-card-title>
+    <mat-card-content>
+      <p>Webserver for <a href="http://proserium.net">http://proserium.net</a></p>
+      <p>Node: centos-1</p>
+    </mat-card-content>
+  </mat-card-header>
+</mat-card>
+
+<mat-card [routerLink]="['/service/apache-http-4']">
+  <mat-card-header>
+    <div class="httpd" mat-card-avatar></div>
+
+    <mat-card-title>
+      apache-http-4
+    </mat-card-title>
+    <mat-card-content>
+      <p>Webserver for <a href="http://proserium.net">http://proserium.net</a></p>
+      <p>Node: centos-2</p>
+    </mat-card-content>
+  </mat-card-header>
+</mat-card>

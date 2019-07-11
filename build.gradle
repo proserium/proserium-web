@@ -92,6 +92,10 @@ task angularbuild(type: NpmTask) {
   args = ['run', 'build']
 }
 
+task angularstart(type: NpmTask) {
+  args = ['run', 'start']
+}
+
 artifacts {
     archives jar
     archives sourcesJar
