@@ -7,17 +7,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ListComponent } from './list/list.component';
 import { ServiceComponent } from './service/service.component';
-import { NodesComponent } from './nodes/nodes.component';
+import { ListServiceComponent } from './list-service/list-service.component';
+import { ListNodeComponent } from './list-node/list-node.component';
+import { NodeDetailsComponent } from './node-details/node-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ListComponent,
     ServiceComponent,
-    NodesComponent
+    ListServiceComponent,
+    ListNodeComponent,
+    NodeDetailsComponent
   ],
   imports: [
     BrowserModule,
