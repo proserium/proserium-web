@@ -8,7 +8,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ServiceAddComponent implements OnInit {
 
-  isLinear = false;
   template: FormGroup;
   scedule: FormGroup;
   doScedule: boolean;
