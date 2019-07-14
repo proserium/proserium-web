@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule } from '@angular/material';
-import { MatIconModule, MatCardModule, MatDividerModule, MatStepperModule } from '@angular/material';
+import { MatIconModule, MatCardModule, MatDividerModule, MatStepperModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatMenuModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSlideToggleModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const material: any[] = [
   MatButtonModule,
@@ -11,7 +11,12 @@ const material: any[] = [
   MatIconModule,
   MatCardModule,
   MatDividerModule,
-  MatStepperModule
+  MatStepperModule,
+  MatFormFieldModule,
+  ReactiveFormsModule,
+  MatInputModule,
+  MatSelectModule,
+  MatSlideToggleModule
 ];
 
 @NgModule({

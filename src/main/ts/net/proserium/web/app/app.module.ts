@@ -7,19 +7,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ServiceComponent } from './service/service.component';
 import { ListServiceComponent } from './list-service/list-service.component';
 import { ListNodeComponent } from './list-node/list-node.component';
 import { NodeDetailsComponent } from './node-details/node-details.component';
+import { ServiceDetailsComponent } from './service-details/service-details.component';
+import { ServiceAddComponent } from './service-add/service-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ServiceComponent,
     ListServiceComponent,
     ListNodeComponent,
-    NodeDetailsComponent
+    NodeDetailsComponent,
+    ServiceDetailsComponent,
+    ServiceAddComponent
   ],
   imports: [
     BrowserModule,
