@@ -10,7 +10,7 @@ export class ServiceAddComponent implements OnInit {
 
   template: FormGroup;
   scedule: FormGroup;
-  doScedule: boolean;
+  public doScedule = false;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -23,7 +23,7 @@ export class ServiceAddComponent implements OnInit {
     });
   }
 
-  private toggleScedule(event) {
+  toggleScedule(event) {
     if (this.doScedule) {
       this.doScedule = false;
     } else {
