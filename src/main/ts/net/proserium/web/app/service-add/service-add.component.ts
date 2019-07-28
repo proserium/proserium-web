@@ -10,7 +10,7 @@ export class ServiceAddComponent implements OnInit {
 
   template: FormGroup;
   scedule: FormGroup;
-  public doScedule = false;
+  doScedule: boolean = false;
 
   constructor(private formBuilder: FormBuilder) {}
 
