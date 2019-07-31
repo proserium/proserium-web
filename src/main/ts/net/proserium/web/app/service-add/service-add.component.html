@@ -3,32 +3,43 @@
   <mat-step [stepControl]="template">
     <form [formGroup]="template">
       <ng-template matStepLabel>template</ng-template>
+      <p>{{ template.value | json }}</p>
+      <input matInput formControlName="name" type="text" placeholder="">
       <mat-form-field>
-        <mat-select placeholder="Teamplate" frormControlName="templateControl">
-          <mat-option value="option">Apache</mat-option>
-          <mat-option value="option">nginx</mat-option>
+        <mat-select frormControlName="templatee" placeholder="Teamplate">
+          <mat-option value="Apache">Apache</mat-option>
+          <mat-option value="nginx">nginx</mat-option>
         </mat-select>
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-raised-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="scedule">
     <form [formGroup]="scedule">
       <ng-template matStepLabel>scedule</ng-template>
+      <p>{{ scedule.value | json }}</p>
       <mat-slide-toggle (toggleChange)="toggleScedule($event)">Enable sceduling</mat-slide-toggle>
       <div *ngIf="doScedule">
-        <h3>scedule is enabled</h3>
+        <a>Every </a>
+        <mat-form-field>
+          <mat-select placeholder="when" frormControlName="when">
+            <mat-option value="option">day</mat-option>
+            <mat-option value="option">month</mat-option>
+            <mat-option value="option">year</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <h3>Here is some info about the service you added</h3>
+    <button mat-raised-button matTooltip="This creates the service">Submit Service</button>
   </mat-step>
 </mat-horizontal-stepper>

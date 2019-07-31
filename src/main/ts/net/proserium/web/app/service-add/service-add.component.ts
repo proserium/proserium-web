@@ -10,20 +10,27 @@ export class ServiceAddComponent implements OnInit {
 
   template: FormGroup;
   scedule: FormGroup;
-  doScedule: boolean = false;
+  doScedule: boolean = true;
+
+  serviceName: String;
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.template = this.formBuilder.group({
-      templateControl: ['', Validators.required]
+      template: ['', Validators.required],
+      name: ['', Validators.required]
     });
     this.scedule = this.formBuilder.group({
-      sceduleControl: ['', Validators.required]
+      scedule: ['', Validators.required]
     });
+
+    /*this.template.valueChanges.subscribe( data => {
+      console.log(data);
+    });*/
   }
 
-  toggleScedule(event) {
+  toggleScedule(event): void {
     if (this.doScedule) {
       this.doScedule = false;
     } else {
