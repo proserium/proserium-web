@@ -1,25 +1,53 @@
 <h1>Add Service</h1>
-<mat-horizontal-stepper [linear]="false" #stepper>
+<mat-horizontal-stepper [linear]="true" #stepper>
   <mat-step [stepControl]="template">
     <form [formGroup]="template">
       <ng-template matStepLabel>template</ng-template>
-      <p>{{ template.value | json }}</p>
-      <input matInput formControlName="name" type="text" placeholder="">
-      <mat-form-field>
-        <mat-select frormControlName="templatee" placeholder="Teamplate">
-          <mat-option value="Apache">Apache</mat-option>
-          <mat-option value="nginx">nginx</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <h3>Pick a service</h3>
+      <div class="search">
+        <mat-form-field>
+          <input matInput formControlName="name" type="search" placeholder="">
+        </mat-form-field>
+        <button mat-icon-button type="submit" (click)="search()">
+          <mat-icon class="mat-18">search</mat-icon>
+        </button>
+      </div>
+      <div class="search-result">
+        <mat-card>
+          <mat-card-header>
+            <div class="httpd" mat-card-avatar></div>
+            <mat-card-title>
+              apache-http
+            </mat-card-title>
+            <mat-icon class="service-select">check_circle_outline</mat-icon>
+          </mat-card-header>
+        </mat-card>
+      </div>
       <div>
         <button mat-raised-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>configure</ng-template>
+    <p>Some dynamic from</p>
+    <mat-form-field>
+      <input matInput placeholder="name">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <textarea matInput placeholder="description"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-slider></mat-slider>
+    <div>
+      <button mat-raised-button matStepperPrevious>Back</button>
+      <button mat-raised-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
   <mat-step [stepControl]="scedule">
     <form [formGroup]="scedule">
       <ng-template matStepLabel>scedule</ng-template>
-      <p>{{ scedule.value | json }}</p>
       <mat-slide-toggle (toggleChange)="toggleScedule($event)">Enable sceduling</mat-slide-toggle>
       <div *ngIf="doScedule">
         <a>Every </a>
@@ -36,6 +64,14 @@
         <button mat-raised-button matStepperNext>Next</button>
       </div>
     </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>permission</ng-template>
+    <p>A serch were you can search groups and users to give them acces to the service</p>
+    <div>
+      <button mat-raised-button matStepperPrevious>Back</button>
+      <button mat-raised-button matStepperNext>Next</button>
+    </div>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>

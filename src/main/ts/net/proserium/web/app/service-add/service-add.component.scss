@@ -1,0 +1,16 @@
+.httpd {
+  background-image: url('https://www.apache.org/foundation/press/kit/feather.png');
+  background-size: cover;
+}
+
+.search {
+  mat-form-field {
+    width: 95%;
+  }
+}
+
+.search-result {
+  .service-select {
+    float: right;
+  }
+}

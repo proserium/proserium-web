@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-service-add',
@@ -10,7 +11,7 @@ export class ServiceAddComponent implements OnInit {
 
   template: FormGroup;
   scedule: FormGroup;
-  doScedule: boolean = true;
+  doScedule = false;
 
   serviceName: String;
 
@@ -18,11 +19,10 @@ export class ServiceAddComponent implements OnInit {
 
   ngOnInit() {
     this.template = this.formBuilder.group({
-      template: ['', Validators.required],
-      name: ['', Validators.required]
+      name: ['apa', Validators.required]
     });
     this.scedule = this.formBuilder.group({
-      scedule: ['', Validators.required]
+      scedule: ['', Validators.nullValidator]
     });
 
     /*this.template.valueChanges.subscribe( data => {
@@ -37,4 +37,9 @@ export class ServiceAddComponent implements OnInit {
       this.doScedule = true;
     }
   }
+
+  search() {
+    console.log('search: ' + this.template.get('name').value);
+  }
+
 }
