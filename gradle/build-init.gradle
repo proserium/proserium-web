@@ -1,0 +1,24 @@
+/*
+ * build-init.gradle
+ *
+ * Copyright by proserium, all rights reserved.
+ * MIT License: https://mit-license.org
+ */
+
+
+/***************************************************************************************
+ * Init
+ ***************************************************************************************/
+init {
+    def LINE = '****************************************************************************************'
+    def dateTimestamp = new java.text.SimpleDateFormat("dd.MM.yyyy").format(new Date())
+    def props = new Properties()
+    file("VERSION").withInputStream { props.load(it) }
+    version = props.getProperty("major.number") + "." + props.getProperty("minor.number") + "." + props.getProperty("build.number")
+
+	println(LINE)
+	println("Project $projectName ($groupId)")
+	println("Version $version, $dateTimestamp (${System.properties['user.name']})")
+	println("Java v${System.properties['java.version']}, target $targetCompatibility (${System.properties['java.vendor']}, ${System.properties['os.name']})")
+	println(LINE)
+}

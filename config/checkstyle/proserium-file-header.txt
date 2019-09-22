@@ -1,0 +1,6 @@
+/*
+ * *$
+ *
+ * Copyright by proserium, all rights reserved.
+ * MIT License: https://mit-license.org
+ */

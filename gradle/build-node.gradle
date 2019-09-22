@@ -1,0 +1,35 @@
+/*
+ * build-test.gradle
+ *
+ * Copyright by proserium, all rights reserved.
+ * MIT License: https://mit-license.org
+ */
+apply plugin:'base'
+
+ 
+/***************************************************************************************
+ * Node version
+ ***************************************************************************************/
+node {
+  version = '8.10.0'
+  npmVersion = '6.9.2'
+  download = true
+  workDir = file("${project.buildDir}/.node")
+  nodeModulesDir = file("${project.projectDir}")
+}
+
+
+/***************************************************************************************
+ * angular build
+ ***************************************************************************************/
+task angularbuild(type: NpmTask) {
+  args = ['run', 'build']
+}
+
+
+/***************************************************************************************
+ * angular run
+ ***************************************************************************************/
+task angularstart(type: NpmTask) {
+  args = ['run', 'start']
+}

@@ -1,0 +1,21 @@
+/*
+ * build-repository.gradle
+ *
+ * Copyright by proserium, all rights reserved.
+ * MIT License: https://mit-license.org
+ */
+apply plugin: 'maven-publish'
+
+//def mvnSecurity = new Properties()
+//file(".mvn-security").withInputStream { props.load(it) }
+//def mvnUser = props.getProperty("user")
+//def mvnPassword = props.getProperty("password")
+
+
+/***************************************************************************************
+ * Repositories
+ ***************************************************************************************/
+repositories {
+    mavenCentral()
+	maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}

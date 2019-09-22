@@ -1,41 +1,21 @@
+/*
+ * build.gradle
+ *
+ * Copyright by proserium, all rights reserved.
+ * MIT License: https://mit-license.org
+ */
 plugins {
   id "com.moowork.node" version "1.3.1"
 }
 
-apply plugin:'base'
-
-def groupId = 'net.proserium'
-def rootPackageName = 'net.proserium.web'
-
-node {
-  version = '8.10.0'
-  npmVersion = '6.9.2'
-  download = true
-  workDir = file("${project.buildDir}/.node")
-  nodeModulesDir = file("${project.projectDir}")
-}
+apply from: 'gradle/build-proserium.gradle'
+apply from: 'gradle/build-node.gradle'
 
 defaultTasks 'clean', 'npm_install', 'angularbuild'
-def LINE = '****************************************************************************************'
-def dateTimestamp = new java.text.SimpleDateFormat("dd.MM.yyyy").format(new Date())
-def props = new Properties()
-file("${project.projectDir}/VERSION").withInputStream { props.load(it) }
-version = props.getProperty("major.number") + "." + props.getProperty("minor.number") + "." + props.getProperty("build.number")
 
-init {
-	println(LINE)
-	println("Project $projectName ($groupId)")
-	println("Version $version, $dateTimestamp (${System.properties['user.name']})")
-	println("Node v${node.version}, NPM v${node.npmVersion} (${System.properties['os.name']})")
-	println(LINE)
 
-	groupId = "$groupId"
-}
-
-task angularbuild(type: NpmTask) {
-  args = ['run', 'build']
-}
-
-task angularstart(type: NpmTask) {
-  args = ['run', 'start']
+/***************************************************************************************
+ * Define project dependencies
+ ***************************************************************************************/
+dependencies {
 }
