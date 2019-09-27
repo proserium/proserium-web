@@ -11,7 +11,7 @@ apply plugin:'base'
  * Node version
  ***************************************************************************************/
 node {
-  version = '8.10.0'
+  version = '10.16.0'
   npmVersion = '6.9.2'
   download = true
   workDir = file("${project.buildDir}/.node")
