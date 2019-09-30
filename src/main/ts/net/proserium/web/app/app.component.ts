@@ -1,3 +1,9 @@
+/*
+ * app.component.ts
+ *
+ * Copyright by proserium, all rights reserved.
+ * MIT License: https://mit-license.org
+ */
 import { Component } from '@angular/core';
 
 @Component({

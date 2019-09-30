@@ -1,3 +1,9 @@
+/*
+ * node-details.component.ts
+ *
+ * Copyright by proserium, all rights reserved.
+ * MIT License: https://mit-license.org
+ */
 import { Component, OnInit } from '@angular/core';
 
 @Component({

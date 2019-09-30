@@ -1,3 +1,9 @@
+/*
+ * service-add.component.ts
+ *
+ * Copyright by proserium, all rights reserved.
+ * MIT License: https://mit-license.org
+ */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThrowStmt } from '@angular/compiler';
