@@ -28,7 +28,8 @@ const material: any[] = [
   MatSelectModule,
   MatSlideToggleModule,
   MatTooltipModule,
-  MatChipsModule
+  MatChipsModule,
+  MatSliderModule
 ];
 
 @NgModule({
