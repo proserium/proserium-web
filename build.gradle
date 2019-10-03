@@ -11,7 +11,7 @@ plugins {
 apply from: 'gradle/build-proserium.gradle'
 apply from: 'gradle/build-node.gradle'
 
-defaultTasks 'clean', 'npm_install', 'angularbuild'
+defaultTasks 'clean', 'npm_install', 'lint', 'angularbuild'
 
 
 /***************************************************************************************
