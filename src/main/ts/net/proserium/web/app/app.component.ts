@@ -12,5 +12,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'proserium-gui';
+  title = 'proserium-web';
 }
