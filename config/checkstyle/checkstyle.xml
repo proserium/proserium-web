@@ -21,13 +21,11 @@
     </module>
 	
 	<!-- proserium allows 250 line length -->
-	<!--
 	<module name="LineLength">
         <property name="fileExtensions" value="java"/>
         <property name="max" value="250"/>
         <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
     </module>
-	-->
 	
 	<!-- suppress by comment -->
 	<!--
@@ -51,10 +49,6 @@
 	-->
 	
 	<module name="TreeWalker">
-		<module name="LineLength">
-			<property name="max" value="250"/>
-			<property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
-		</module>	
 		<!--<module name="FileContentsHolder"/>-->
 		<module name="OuterTypeFilename"/>
         <module name="IllegalTokenText">

@@ -13,7 +13,7 @@ apply plugin: 'eclipse'
 eclipse {
 	classpath  {
 		defaultOutputDir = file('build-eclipse')
-
+/*
 		file {
 			whenMerged {
 				// use default Output for all source-folders. see also defaultOutputDir per project
@@ -25,8 +25,15 @@ eclipse {
 				}
 			}
 		}
+			*/
     }
 }
+
+/*
+clean{
+  delete '.classpath'
+}
+*/
 
 
 /***************************************************************************************

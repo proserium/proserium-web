@@ -32,9 +32,9 @@ jar{
 	def dateTimestamp = new java.text.SimpleDateFormat("dd.MM.yyyy").format(new Date())
 
         attributes 'Specification-Title'   : rootProject.name,
-		           'Specification-Version' : version,
+		           'Specification-Version' : project.version,
 		           'Implementation-Title'  : rootProject.name,
-        	       'Implementation-Version': version + ' / ' + dateTimestamp,
+        	       'Implementation-Version': project.version + ' / ' + dateTimestamp,
                    'Built-By'              : System.properties['user.name'],
                    'Build-Timestamp'       : new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
                    'Created-By'            : "Gradle ${gradle.gradleVersion}",

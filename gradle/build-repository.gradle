@@ -6,11 +6,6 @@
  */
 apply plugin: 'maven-publish'
 
-//def mvnSecurity = new Properties()
-//file(".mvn-security").withInputStream { props.load(it) }
-//def mvnUser = props.getProperty("user")
-//def mvnPassword = props.getProperty("password")
-
 
 /***************************************************************************************
  * Repositories
@@ -18,4 +13,6 @@ apply plugin: 'maven-publish'
 repositories {
     mavenCentral()
 	maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+	//maven { url "https://oss.sonatype.org/content/repositories/staging" }
+	//maven { url "https://oss.sonatype.org/content/repositories/public" }
 }

@@ -10,15 +10,28 @@
  * Init
  ***************************************************************************************/
 init {
+	def styler = 'black red green yellow blue magenta cyan white' .split().toList().withIndex(30).collectEntries { key, val -> [(key) : { "\033[${val}m${it}\033[0m" }] }
     def LINE = '****************************************************************************************'
     def dateTimestamp = new java.text.SimpleDateFormat("dd.MM.yyyy").format(new Date())
-    def props = new Properties()
+    def props = new Properties()	
     file("VERSION").withInputStream { props.load(it) }
-    version = props.getProperty("major.number") + "." + props.getProperty("minor.number") + "." + props.getProperty("build.number")
+    project.version = props.getProperty("major.number") + "." + props.getProperty("minor.number") + "." + props.getProperty("build.number")
 
-	println(LINE)
-	println("Project $projectName ($groupId)")
-	println("Version $version, $dateTimestamp (${System.properties['user.name']})")
-	println("Java v${System.properties['java.version']}, target $targetCompatibility (${System.properties['java.vendor']}, ${System.properties['os.name']})")
-	println(LINE)
+	// get hostname
+	def hostname = System.env['hostname']
+	if ( hostname==null || hostname.isEmpty() ) {
+		hostname = System.env['HOSTNAME']
+		if ( hostname==null || hostname.isEmpty() )
+			hostname = System.env['COMPUTERNAME']
+	}
+	if ( hostname==null || hostname.isEmpty() )
+		hostname = "localhost";
+
+	println("${styler['cyan'](LINE)}")
+	println("  Project ${styler['yellow'](projectName)} ($groupId)")
+	println("  Version ${styler['cyan'](project.version)}, ${styler['cyan'](dateTimestamp)} (${System.properties['user.name']}, ${System.properties['user.language']}, ${System.properties['file.encoding']}, ${TimeZone.getDefault().getID()})")
+	println("  Java v${styler['cyan'](System.properties['java.version'])}, target ${styler['cyan'](targetCompatibility)} (${System.properties['java.vendor']}-${System.properties['java.vm.version']}), ${System.properties['os.name']} (${System.properties['os.arch']}) on ${hostname}")
+	println("  Java home: ${System.env['JAVA_HOME']}") //, working path: ${System.properties['user.dir']}")
+	//println("  PID: ${java.lang.ProcessHandle.current().pid()}, ${Runtime.getRuntime().maxMemory()}")
+	println("${styler['cyan'](LINE)}")
 }
